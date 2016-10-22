@@ -21,6 +21,7 @@ package net.filnko.ebusJ.client;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
 import java.util.concurrent.Callable;
 
 class EbusdTask implements Callable<String> {
@@ -44,7 +45,7 @@ class EbusdTask implements Callable<String> {
      * @throws EbusException
      */
     @Override
-    public String call() throws EbusException {
+    public String call() throws EbusException, UnsupportedEncodingException {
 
         out.println(command);
         out.flush();
@@ -60,7 +61,11 @@ class EbusdTask implements Callable<String> {
             throw new EbusException("error when reading response from ebusd", e);
         }
 
+        // remove new lines at the end
         String response = sb.toString().replace(end, "");
+
+        // fix encoding (telnet delivers latin1, java need UTF8)
+        response = new String(response.getBytes("latin1"), "UTF8");
 
         if (response.startsWith("ERR:") && response.length() < 100)
             throw new EbusException(response);
