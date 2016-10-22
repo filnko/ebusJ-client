@@ -24,12 +24,22 @@ public class EbusFindResult {
     public String circuit;
     public String name;
     public String comment;
+    public String datatype;
 
-    public EbusFindResult(String type, String circuit, String name, String comment) {
+    public EbusFindResult(String type, String circuit, String name, String comment, String datatype) {
         this.type = type;
         this.circuit = circuit;
         this.name = name;
         this.comment = comment;
+        this.datatype = datatype;
+    }
+
+    public EbusFindResult(String[] values) {
+        this.type = values[0];
+        this.circuit = values[1];
+        this.name = values[2];
+        this.comment = values[3];
+        this.datatype = (10<= values.length) ? values[10] : null;
     }
 
     @Override
@@ -39,6 +49,7 @@ public class EbusFindResult {
                 ", circuit='" + circuit + '\'' +
                 ", name='" + name + '\'' +
                 ", comment='" + comment + '\'' +
+                ", datatype='" + datatype + '\'' +
                 '}';
     }
 

@@ -6,7 +6,7 @@
 
     <groupId>net.filnko.ebusJ</groupId>
     <artifactId>ebusJ-client</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.2-SNAPSHOT</version>
 
     <properties>
         <commons-net.version>3.4</commons-net.version>

@@ -36,7 +36,7 @@ class Helper {
 
         for (String find : finds) {
             String[] values = find.split(",");
-            ebusFindResults.add(new EbusFindResult(values[0], values[1], values[2], values[3]));
+            ebusFindResults.add(new EbusFindResult(values));
         }
 
         return ebusFindResults;
