@@ -9,7 +9,7 @@
     <version>0.2-SNAPSHOT</version>
 
     <properties>
-        <commons-net.version>3.4</commons-net.version>
+        <commons-net.version>3.9.0</commons-net.version>
         <junit.version>4.12</junit.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
     </properties>
